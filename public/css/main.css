@@ -943,7 +943,7 @@ header {
     top: 100%;
     right: -17px;
     background: #fff;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.13)
+    box-shadow: 0 3px 5px 4px rgba(0, 0, 0, 0.13)
 }
 
 .open-login .login-forms-wrapper,
@@ -1023,7 +1023,8 @@ header {
     background: #c5c5c5;
     font-size: 14px;
     color: #fff;
-    font-weight: 800
+    font-weight: 800;
+    padding: 0;
 }
 
 .login-form .form-input.with-recovery-button .recovery-password-button:hover {
