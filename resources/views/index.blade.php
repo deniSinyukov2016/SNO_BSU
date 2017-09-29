@@ -65,50 +65,69 @@
 
                 <div class="guest-menu header-nav">
                     <ul class="clearfix list-unstyled">
-                        <li class="login-form-container">
-                            <a class="login-badge ">
-                                Вход
-                            </a>
-                            <div class="login-forms-wrapper">
-                                <div class="login-form">
-                                    <div id="login_form_err" style="color:red; margin-bottom:10px"></div>
-                                    <form id="login_form">
-                                        <div class="form-input">
-                                            <input name="email" type="email" placeholder="Электронная почта">
-                                        </div>
-                                        <div class="form-input with-recovery-button">
-                                            <input name="pass" type="password" placeholder="Пароль">
-                                            <div class="recovery-password-button">?</div>
-                                        </div>
-                                        <div class="clearfix">
-                                            <button class="submit-button pull-left">Вход</button>
+                        @if (Auth::guest())
+                            <li class="login-form-container">
+                                <a href="{{ route('login') }}" class="login-badge">Вход</a>
+                                <div class="login-forms-wrapper">
+                                    <div class="login-form">
+                                        <div id="login_form_err" style="color:red; margin-bottom:10px"></div>
 
-                                            <div action="fb_login" class="facebook-login pull-right"></div>
-                                            <div action="google_login" class="google-login pull-right"></div>
+                                        <form id="login_form" action="{{route('login')}}" method="POST">
+                                            {{ csrf_field() }}
+                                            <div class="form-input">
+                                                <input id="email" name="email" type="email" placeholder="Электронная почта">
+                                            </div>
+                                            <div class="form-input with-recovery-button">
+                                                <input id="password" name="password" type="password" placeholder="Пароль">
+                                                <a href="{{route('password.request')}}" class="recovery-password-button">?</a>
+                                            </div>
+                                            <div class="clearfix">
+                                                <button type="submit" class="submit-button pull-left">Вход</button>
 
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="password-recovery-form">
-                                    <div class="recovery-descroption">
-                                        Введите свой адрес электронной почты ниже, и мы отправим вам инструкции по сбросу пароля.
+                                                <div action="fb_login" class="facebook-login pull-right"></div>
+                                                <div action="google_login" class="google-login pull-right"></div>
+
+                                            </div>
+                                        </form>
+
                                     </div>
-                                    <form id="pass_recovery">
-                                        <div class="form-input with-recovery-button">
-                                            <input type="email" placeholder="Электронная почта">
+                                    <div class="password-recovery-form">
+                                        <div class="recovery-descroption">
+                                            Введите свой адрес электронной почты ниже, и мы отправим вам инструкции по сбросу пароля.
                                         </div>
-                                        <button class="submit-button display-block">
-                                            Отправить инструкции
-                                        </button>
-                                    </form>
+                                        <form id="pass_recovery">
+                                            <div class="form-input with-recovery-button">
+                                                <input type="email" placeholder="Электронная почта">
+                                            </div>
+                                            <button class="submit-button display-block">
+                                                Отправить инструкции
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="" class="add-to-chrome" style="padding: 4px 7px !important; margin-left:25px !important">
-                                Регистрация
-                            </a>
-                        </li>
+                            </li>
+                            <li>
+                                <a href="{{ route('register') }}" class="add-to-chrome" style="padding: 4px 7px !important; margin-left:25px !important">Регистрация</a>
+                            </li>
+                        @else
+                            <li>
+                                <a href="https://convertio.co/logout/" class="user-email-link">
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                                    Выйти
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+
+                        @endif
 
                     </ul>
                 </div>
