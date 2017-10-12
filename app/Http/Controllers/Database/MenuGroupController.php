@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Post;
 
+use App\MenuGroup;
 use Illuminate\Http\Request;
-use DB;
 
-class PostController extends Controller
+class MenuGroupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('inner');
+        //
     }
 
     /**
@@ -42,22 +41,21 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\MenuGroup  $menuGroup
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(MenuGroup $menuGroup)
     {
-        $post = Post::find($id);
-        return view('home',$post);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\MenuGroup  $menuGroup
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(MenuGroup $menuGroup)
     {
         //
     }
@@ -66,10 +64,10 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\MenuGroup  $menuGroup
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, MenuGroup $menuGroup)
     {
         //
     }
@@ -77,10 +75,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\MenuGroup  $menuGroup
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(MenuGroup $menuGroup)
     {
         //
     }

@@ -2,6 +2,9 @@
 
 Route::get('', ['as' => 'admin.dashboard', function () {
 	$content = 'Define your dashboard here.';
+    if (Gate::denies('view-admin')){
+        return redirect('/')->with('message','Доступ в аднинку доступен только администратору сайта!');
+    }
 	return AdminSection::view( 'Админ панель');
 }]);
 

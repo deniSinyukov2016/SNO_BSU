@@ -1310,13 +1310,13 @@ section.content {
 }
 
 .same-width-wrapper {
-    text-align: center
+    text-align: left;
 }
 
 .same-width {
     text-align: left;
     display: inline-block;
-    min-width: 640px
+    /*min-width: 640px;*/
 }
 
 .file-upload-option ul.file-sources-list {
@@ -1986,7 +1986,8 @@ section.content {
 .action-wrapper {
     width: 93px;
     padding-left: 10px;
-    text-align: right
+    text-align: center;
+
 }
 
 .user-file-row .action.download {
@@ -1999,7 +2000,7 @@ section.content {
 
 .action.download {
     display: inline-block;
-    padding: 8px 10px 7px;
+    padding: 12px 15px 12px;
     border-radius: 1px;
     font-size: 10px;
     font-weight: bold;
@@ -2236,14 +2237,15 @@ section.content {
     display: table;
     margin: 0 auto 48px;
     border-bottom: solid #b8b8b8 5px;
-    min-width: 640px;
+    /*min-width: 640px;*/
     background-color: #c8c8c8;
     padding: 25px 38px 26px 44px;
     color: #333
 }
 
 .destination.visitor-view {
-    padding: 15px 20px
+    padding: 15px 20px;
+    width: 100%;
 }
 
 .destination.visitor-view .to-email {
@@ -7029,4 +7031,43 @@ body.fb_hidden {
     position: absolute;
     left: 50%;
     z-index: 4
+}
+
+.same-width.item{
+    float: left;
+    width: 75%;
+}
+
+.same-width.item .content-part {
+    padding: 10px;
+}
+.same-width-wrapper .sidebar-right {
+    float: left;
+    width: 24%;
+    margin-left: 10px;
+    background-color: #fafafa;
+}
+.sidebar-right .head-bar .file-status.finish{
+    padding: 10px 30px 10px;
+    width: 100%;
+    text-align: center;
+}
+.sidebar-right .head-bar .file-status{
+    margin: 0;
+}
+.sidebar-right .list ul {
+    margin: 0;
+    list-style: none;
+    padding: 10px;
+    background-color: #eee;
+}
+.sidebar-right a.list-group-item {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+}
+.sidebar-right a.list-group-item:hover{
+    color: #ee0303;
 }

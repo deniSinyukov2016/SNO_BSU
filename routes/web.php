@@ -12,8 +12,19 @@
 */
 
 Route::get('/', 'MainController@index');
-Route::resource('posts', 'PostController');
+
+//Route::resource('posts', 'PostController');
 
 Auth::routes();
+//Route::get('/news', 'PostController@index' );
+Route::get('/contacts', 'MainController@index' );
+Route::get('/resources', 'MainController@index' );
+Route::get('/structure', 'MainController@index' );
+Route::get('/news', 'PostController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+//if(Gate::denies('view-admin')) {
+//    return "dont";
+//}

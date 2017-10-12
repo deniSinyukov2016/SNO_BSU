@@ -25,6 +25,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('login') ? ' has-error' : '' }}">
+                            <label for="login" class="col-md-4 control-label">Login</label>
+
+                            <div class="col-md-6">
+                                <input id="login" type="text" class="form-control" name="login" value="{{ old('login') }}" required autofocus>
+
+                                @if ($errors->has('login'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('login') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
@@ -60,6 +74,24 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+
+                        {{--<div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">--}}
+                            {{--<label for="role" class="col-md-4 control-label">User role</label>--}}
+
+                            {{--<div class="col-md-6">--}}
+                                {{--<select id="role" class="form-control" name="role" required>--}}
+                                    {{--@foreach($roles as $id => $role)--}}
+                                        {{--<option value="{{$id}}">{{$role}}</option>--}}
+                                    {{--@endforeach--}}
+                                {{--</select>--}}
+
+                                {{--@if ($errors->has('role'))--}}
+                                    {{--<span class="help-block">--}}
+                                        {{--<strong>{{ $errors->first('role') }}</strong>--}}
+                                    {{--</span>--}}
+                                {{--@endif--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
