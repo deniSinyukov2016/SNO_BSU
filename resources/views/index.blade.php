@@ -4,33 +4,23 @@
     @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
-    <ul class="nav flex-column">
-                <li class="nav-item">
-                    <div class="jumbotron">
-                        <h1>Bootstrap Tutorial</h1>
-                        <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing
-                            responsive, mobile-first projects on the web.</p>
-                    </div>
-                    <p>This is some text.</p>
-                    <p>This is another text.</p>
-                </li>
-                <li class="nav-item">
-                    <div class="jumbotron">
-                        <h1>Bootstrap Tutorial</h1>
-                        <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing
-                            responsive, mobile-first projects on the web.</p>
-                    </div>
-                    <p>This is some text.</p>
-                    <p>This is another text.</p>
-                </li>
-                <li class="nav-item">
-                    <div class="jumbotron">
-                        <h1>Bootstrap Tutorial</h1>
-                        <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing
-                            responsive, mobile-first projects on the web.</p>
-                    </div>
-                    <p>This is some text.</p>
-                    <p>This is another text.</p>
-                </li>
-            </ul>
+
+    <article class="blog-post">
+        <header>
+            <h2 class="blog-post-title"><a href="">Creating a New Theme</a></h2>
+            <p class="blog-post-meta"><time datetime="2014-09-28T00:00:00Z">Sun Sep 28, 2014</time> by Michael Henderson</p>
+        </header>
+        Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I’ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won’t cover using CSS to style your theme.
+        We’ll start with creating a new site with a very basic template.
+        <a href="https://themes.gohugo.io/theme/hugo-theme-bootstrap4-blog/2014/09/creating-a-new-theme/">Read more →</a>
+    </article>
+    <article class="blog-post">
+        <header>
+            <h2 class="blog-post-title"><a href="">Creating a New Theme</a></h2>
+            <p class="blog-post-meta"><time datetime="2014-09-28T00:00:00Z">Sun Sep 28, 2014</time> by Michael Henderson</p>
+        </header>
+        Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I’ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won’t cover using CSS to style your theme.
+        We’ll start with creating a new site with a very basic template.
+        <a href="">Read more →</a>
+    </article>
 @endsection
