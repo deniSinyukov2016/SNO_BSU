@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         //$this->call(MenuGroupsTableSeeder::class);
         //$this->call(MenuItemsTableSeeder::class);
         //$this->call(TermTableSeeder::class);
+        $this->call(PostsTableSeeder::class);
     }
 }
