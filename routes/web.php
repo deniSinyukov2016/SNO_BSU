@@ -20,9 +20,9 @@ Auth::routes();
 Route::get('/contacts', 'MainController@index' );
 Route::get('/resources', 'MainController@index' );
 Route::get('/structure', 'MainController@index' );
-Route::get('/news', 'PostController@index');
+//Route::get('/news', 'PostController@index');
 
-
+Route::resource('news', 'PostController');
 
 
 //if(Gate::denies('view-admin')) {
