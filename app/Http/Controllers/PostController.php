@@ -15,7 +15,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('inner');
+        $posts = Post::where('status','=','public')->paginate(10);//Получение опубликованных постов( 10 постов на странице)
+
+        return view('inner', compact('posts',$posts));
     }
 
     /**
@@ -48,7 +50,8 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('home',$post);
+
+        return view('detail',compact(['post',$post]));
     }
 
     /**
@@ -84,4 +87,6 @@ class PostController extends Controller
     {
         //
     }
+
+
 }
