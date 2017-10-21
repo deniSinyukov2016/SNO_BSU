@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Menu;
+use App\Post;
 use Illuminate\Http\Request;
 use DB;
 
 class MainController extends Controller
 {
-    private $menuTop = array();
-    private $menuBottom = array();
 
     public function __construct()
     {
@@ -22,20 +21,8 @@ class MainController extends Controller
      */
     public function index()
     {
-        // Получние основного меню
-        $menuTop = DB::table('menu_items')
-            ->leftJoin('menus','menu_items.menu_id','=','menus.id')
-            ->leftJoin('menu_groups','menu_items.group_menu_id','=','menu_groups.id')
-            ->where('menu_items.group_menu_id', '=' ,'1')
-            ->get();
-        // Получние нижнего меню
-        $menuBottom = DB::table('menu_items')
-            ->leftJoin('menus','menu_items.menu_id','=','menus.id')
-            ->leftJoin('menu_groups','menu_items.group_menu_id','=','menu_groups.id')
-            ->where('menu_items.group_menu_id', '=' ,'2')
-            ->get();
-//        return view('index',compact('menuTop','menuBottom'));
-        return view('index');
+        $posts = Post::where('status','=','public')->paginate(10);//Получение опубликованных постов( 10 постов на странице)
+        return view('index',compact('posts',$posts));
     }
 
     public function showNews(){

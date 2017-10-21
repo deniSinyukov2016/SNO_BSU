@@ -16,8 +16,16 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::where('status','=','public')->paginate(10);//Получение опубликованных постов( 10 постов на странице)
-
         return view('inner', compact('posts',$posts));
+    }
+
+    /**
+     * Детальная страница поста по его альтернативному имени(alias)
+     */
+    public function getSingle($alias)
+    {
+        $post = Post::where('alias', '=',$alias)->first();
+        return view('detail',compact(['post',$post]));
     }
 
     /**
@@ -74,7 +82,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -87,6 +95,12 @@ class PostController extends Controller
     {
         //
     }
+
+
+
+
+
+
 
 
 }

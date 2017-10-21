@@ -3,9 +3,9 @@
 namespace App\Widgets;
 
 use Arrilot\Widgets\AbstractWidget;
-use DB; // подключение доступа к БД
+use DB;
 
-class MenuWidget extends AbstractWidget
+class MenuBottomWidget extends AbstractWidget
 {
     /**
      * The configuration array.
@@ -20,17 +20,16 @@ class MenuWidget extends AbstractWidget
      */
     public function run()
     {
-        // Получние  меню в шапке
-        $menuTop = DB::table('menu_items')
+        // Получние  меню в подвале
+        $menuBottom = DB::table('menu_items')
             ->leftJoin('menus','menu_items.menu_id','=','menus.id')
             ->leftJoin('menu_groups','menu_items.group_menu_id','=','menu_groups.id')
-            ->where('menu_items.group_menu_id', '=' ,'1')
+            ->where('menu_items.group_menu_id', '=' ,'2')
             ->get();
 
-
-        return view('widgets.menu_widget', [
+        return view('widgets.menu_bottom_widget', [
             'config' => $this->config,
-            'menuTop' => $menuTop,
+            'menuBottom' => $menuBottom,
         ]);
     }
 }

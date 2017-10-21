@@ -18,6 +18,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <nav class="navbar-light">
+                {{--Подключение аворизации--}}
+                {!! Widget::AuthWidget() !!}
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             {{--Подключение меню--}}
             {!! Widget::MenuWidget() !!}
         </div>

@@ -21,6 +21,7 @@ use SleepingOwl\Admin\Navigation\Page;
 //
  AdminSection::addMenuPage(\App\Post::class);
  AdminSection::addMenuPage(\App\Menu::class);
+// AdminSection::addMenuPage(\App\User::class);
 
 //$navigation->setFromArray([
 //    [
@@ -35,12 +36,25 @@ use SleepingOwl\Admin\Navigation\Page;
 //    ]
 //]);
 return [
+    [
+        'title' => 'Права доступа',
+        'icon' => 'fa fa-group',
+        'priority' =>'10000',
+        'pages' => [
+            (new Page(\App\User::class))
+                ->setIcon('fa fa-user')
+                ->setPriority(0),
+            (new Page(\App\Role::class))
+                ->setIcon('fa fa-group')
+                ->setPriority(100)
+        ]
+    ]
 //    [
 //        'title' => 'Dashboard',
 //        'icon'  => 'fa fa-dashboard',
 //        'url'   => route('admin.dashboard'),
 //    ],
-//
+
 //    [
 //        'title' => 'Information',
 //        'icon'  => 'fa fa-exclamation-circle',

@@ -19,7 +19,7 @@ class CreateMenusTable extends Migration
             $table->boolean('active')->default(true);
             $table->string('url')->unique();
             $table->string('alias')->unique();
-            //$table->integer('sort')-unsigned();
+            $table->integer('sort')->unsigned();
             $table->timestamps();
         });
     }

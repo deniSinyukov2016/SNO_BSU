@@ -14,12 +14,22 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //Передача во все шаблоны меню
+
+        // Получние  меню в шапке
 //        $menuTop = DB::table('menu_items')
 //            ->leftJoin('menus','menu_items.menu_id','=','menus.id')
 //            ->leftJoin('menu_groups','menu_items.group_menu_id','=','menu_groups.id')
 //            ->where('menu_items.group_menu_id', '=' ,'1')
 //            ->get();
-//        view()->share('denis',$menuTop);
+//        // Получние  меню в подвале
+//        $menuBottom = DB::table('menu_items')
+//            ->leftJoin('menus','menu_items.menu_id','=','menus.id')
+//            ->leftJoin('menu_groups','menu_items.group_menu_id','=','menu_groups.id')
+//            ->where('menu_items.group_menu_id', '=' ,'2')
+//            ->get();
+//
+//        view()->share(['menuTop',$menuTop],['menuBottom',$menuBottom]);
     }
 
     /**

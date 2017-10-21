@@ -4,7 +4,8 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#">Hidden brand</a>
+        {{--<a href="/"><img src="{{asset('images/icons/belg_gu.png')}}" width="30" height="30" alt=""></a>--}}
+        <a class="navbar-brand" href="/">НИУ БелГУ</a>
         <ul class="nav nav-pills">
 
             @if(!empty($menuTop))
@@ -18,5 +19,5 @@
 
     </div>
     {{--Подключение аворизации--}}
-    {!! Widget::AuthWidget() !!}
+    {{--{!! Widget::AuthWidget() !!}--}}
 </nav>

@@ -14,7 +14,13 @@ class TermController extends Controller
      */
     public function index()
     {
-        //
+        return "Main topic page";
+    }
+
+    public function  alias($alias)
+    {
+        $topic = Term::where('alias','=',$alias)->first();
+        return view('pages.topic_single',compact('topic',$topic));
     }
 
     /**

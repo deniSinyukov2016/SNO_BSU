@@ -47,7 +47,7 @@ class Posts extends Section
      */
     public function onDisplay()
     {
-        return AdminDisplay::table()/*->with('users')*/
+        $table =  AdminDisplay::table()/*->with('users')*/
         ->setHtmlAttribute('class', 'table-primary')
             ->setColumns(
                 AdminColumn::text('id', 'ID')->setWidth('30px'),
@@ -56,6 +56,11 @@ class Posts extends Section
                 AdminColumn::text('status', 'Статус'),
                 AdminColumn::text('url', 'URL')
             )->paginate(20);
+//        $table = AdminForm::panel()
+//            ->addHeader([
+//                AdminFormElement::text('title', 'Title'),
+//            ]);
+    return $table;
     }
 
     /**
@@ -65,15 +70,15 @@ class Posts extends Section
      */
     public function onEdit($id)
     {
-        return AdminForm::panel()->addBody([
-            AdminFormElement::text('title', 'Заголовок')->required(),
-            AdminFormElement::textarea('content', 'Содержимое'),
-            AdminFormElement::select('status', 'Статус'),
+        $form =  AdminForm::panel()->addBody([
+            AdminFormElement::text('title', 'Заголовок'),
+            AdminFormElement::wysiwyg('content', 'Содержимое', 'ckeditor'),
+            AdminFormElement::text('status', 'Статус'),
             AdminFormElement::text('url', 'URL')->required(),
             AdminFormElement::text('id', 'ID')->setReadonly(1),
             AdminFormElement::text('created_at')->setLabel('Создано')->setReadonly(1),
-
         ]);
+        return $form;
     }
 
     /**

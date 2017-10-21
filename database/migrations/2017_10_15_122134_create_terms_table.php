@@ -21,6 +21,15 @@ class CreateTermsTable extends Migration
             $table->string('url')->unique();
             $table->timestamps();
         });
+        Schema::create('post_term', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('post_id');
+            $table->foreign('post_id')->references('id')->on('posts');
+            $table->unsignedInteger('term_id');
+            $table->foreign('term_id')->references('id')->on('terms');
+            $table->unique(['post_id','term_id']);
+            $table->timestamps();
+        });
     }
 
     /**

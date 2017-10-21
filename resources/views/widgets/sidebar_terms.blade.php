@@ -7,7 +7,7 @@
         </span>
     </span>
     @forelse($allTerms as $term)
-        <a href="{{$term->url}}}" class="list-group-item" data-alias="{{$term->alias}}">
+        <a href="{!! route('topic.alias', $term->alias) !!}" class="list-group-item" data-alias="{{$term->alias}}">
             <i class="fa fa-comment-o"></i> {{$term->name}}
         </a>
     @empty

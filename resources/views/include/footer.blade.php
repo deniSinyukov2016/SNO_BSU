@@ -30,14 +30,8 @@
 
             <hr class="w-100 clearfix d-md-none">
 
-            <!--Third column-->
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h6 class="title mb-4 font-bold">Useful links</h6>
-                <p><a href="#!">Your Account</a></p>
-                <p><a href="#!">Become an Affiliate</a></p>
-                <p><a href="#!">Shipping Rates</a></p>
-                <p><a href="#!">Help</a></p>
-            </div>
+            {{--Подключение меню в подвале--}}
+            {!! Widget::MenuBottomWidget() !!}
             <!--/.Third column-->
 
             <hr class="w-100 clearfix d-md-none">
