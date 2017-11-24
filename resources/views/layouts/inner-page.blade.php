@@ -12,7 +12,6 @@
             <span class="icon-bar"></span>
         </div>
         {{-- Подключение сайдбара --}}
-        {!! Widget::SidebarTerms() !!}
     </div>
 </div>
 

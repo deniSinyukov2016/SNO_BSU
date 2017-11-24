@@ -1,19 +1,9 @@
 {{-- Вывод сайдбара --}}
-<div class="list-group">
-    <span href="#" class="list-group-item active">
-        Категории
-        <span class="pull-right" id="slide-submenu">
-            <i class="fa fa-times"></i>
-        </span>
-    </span>
+<div class="widget-sidebar">
+    <h2 class="title-widget-sidebar">// CATEGORIES</h2>
     @forelse($allTerms as $term)
-        <a href="{!! route('topic.alias', $term->alias) !!}" class="list-group-item" data-alias="{{$term->alias}}">
-            <i class="fa fa-comment-o"></i> {{$term->name}}
-        </a>
+        <a href="{!! route('topic.alias', $term->alias) !!}" class="categories-btn" data-alias="{{$term->alias}}">{{$term->name}}</a>
     @empty
-        <span class="list-group-item">
-            <i class="fa fa-comment-o"></i> Категорий нет
-        </span>
+        <a href="/" class="categories-btn" data-alias="">Категорий нет</a>
     @endforelse
-
 </div>

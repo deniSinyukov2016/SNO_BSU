@@ -16,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::where('status','=','public')->paginate(10);//Получение опубликованных постов( 10 постов на странице)
-        return view('inner', compact('posts',$posts));
+        return view('pages.news', compact('posts',$posts));
     }
 
     /**
@@ -25,7 +25,7 @@ class PostController extends Controller
     public function getSingle($alias)
     {
         $post = Post::where('alias', '=',$alias)->first();
-        return view('detail',compact(['post',$post]));
+        return view('pages.detail',compact(['post',$post]));
     }
 
     /**

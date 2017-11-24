@@ -1,5 +1,5 @@
 {{--Вывод авторизации--}}
-<ul class="nav pull-right" style="min-width: 100px;">
+<ul class="nav nav-pills pull-right" style="min-width: 100px;">
 @if (Auth::guest())
 
         <li class="nav-item">
@@ -12,7 +12,7 @@
 @else
 
     <li class="dropdown ">
-        <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false">
+        <a href="#" class="dropdown-toggle  " data-toggle="dropdown" role="button" aria-expanded="false">
             {{ Auth::user()->name }} <span class="caret"></span>
         </a>
 
@@ -33,3 +33,21 @@
 
 @endif
 </ul>
+
+{{--<div class="dropdown">--}}
+    {{--<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> {{ Auth::user()->name }}--}}
+        {{--<span class="caret"></span></button>--}}
+    {{--<ul class="dropdown-menu" role="menu" >--}}
+        {{--<li>--}}
+            {{--<a href="{{ route('logout') }}"--}}
+               {{--onclick="event.preventDefault();--}}
+                   {{--document.getElementById('logout-form').submit();">--}}
+                {{--Выйти--}}
+            {{--</a>--}}
+
+            {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+                {{--{{ csrf_field() }}--}}
+            {{--</form>--}}
+        {{--</li>--}}
+    {{--</ul>--}}
+{{--</div>--}}

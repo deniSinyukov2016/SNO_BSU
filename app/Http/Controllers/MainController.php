@@ -22,7 +22,7 @@ class MainController extends Controller
     public function index()
     {
         $posts = Post::where('status','=','public')->paginate(10);//Получение опубликованных постов( 10 постов на странице)
-        return view('index',compact('posts',$posts));
+        return view('pages.main',compact('posts',$posts));
     }
 
     public function showNews(){

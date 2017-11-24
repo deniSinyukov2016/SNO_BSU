@@ -52,9 +52,10 @@ class Posts extends Section
             ->setColumns(
                 AdminColumn::text('id', 'ID')->setWidth('30px'),
                 AdminColumn::link('title', 'Заголовок')->setWidth('200px'),
-                AdminColumn::text('content', 'Содержимое'),
-                AdminColumn::text('status', 'Статус'),
-                AdminColumn::text('url', 'URL')
+                AdminColumn::text('alias', 'Псевдоним')->setWidth('200px'),
+                //AdminColumn::text('content', 'Содержимое'),
+                AdminColumn::text('status', 'Статус')
+                //AdminColumn::text('thumbnail', 'Изображение')
             )->paginate(20);
 //        $table = AdminForm::panel()
 //            ->addHeader([
@@ -74,7 +75,9 @@ class Posts extends Section
             AdminFormElement::text('title', 'Заголовок'),
             AdminFormElement::wysiwyg('content', 'Содержимое', 'ckeditor'),
             AdminFormElement::text('status', 'Статус'),
-            AdminFormElement::text('url', 'URL')->required(),
+//            AdminFormElement::select('status', 'Статус',['public','not published']),
+            AdminFormElement::text('alias', 'Псевдоним')->required(),
+            AdminFormElement::image('thumbnail', 'Изображение'),
             AdminFormElement::text('id', 'ID')->setReadonly(1),
             AdminFormElement::text('created_at')->setLabel('Создано')->setReadonly(1),
         ]);

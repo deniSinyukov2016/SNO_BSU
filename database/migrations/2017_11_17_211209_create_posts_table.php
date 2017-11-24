@@ -19,7 +19,8 @@ class CreatePostsTable extends Migration
             $table->text('content');
             $table->enum('status', array('public', 'not published'));
             $table->string('alias');
-            $table->string('url');
+            $table->string('thumbnail')->nullable();
+            $table->unique(['alias']);
             $table->timestamps();
         });
     }

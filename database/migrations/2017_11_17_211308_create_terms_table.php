@@ -18,7 +18,6 @@ class CreateTermsTable extends Migration
             $table->string('name');
             $table->string('alias')->unique();
             $table->integer('sort')->unsigned()->default(1);
-            $table->string('url')->unique();
             $table->timestamps();
         });
         Schema::create('post_term', function (Blueprint $table) {
@@ -39,6 +38,7 @@ class CreateTermsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('post_term');
         Schema::dropIfExists('terms');
     }
 }

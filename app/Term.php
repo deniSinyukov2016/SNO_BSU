@@ -8,7 +8,7 @@ class Term extends Model
 {
 
     protected $fillable = [
-        'name', 'alias', 'sort', 'url'
+        'name', 'alias', 'sort'
     ];
 
     public function posts(){

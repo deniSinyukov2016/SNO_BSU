@@ -10,18 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', 'MainController@index');
-
-//Route::resource('posts', 'PostController');
-
 Auth::routes();
-Route::get('news', 'PostController@index' );
+
+Route::get('/', ['as' => 'home', 'uses' => 'MainController@index']);
+
+//Новости
+//Route::resource('news', 'PostController'); // реализация стандартных методов
+Route::get('news', ['as' => 'news.index', 'uses' => 'PostController@index']); // Главная страница новостей
 Route::get('news/{slug}', ['as' => 'news.single' , 'uses' => 'PostController@getSingle']);
-Route::get('news/{news}', 'PostController@update')->name('news.update');
-//Route::get('/news/{id}', 'PostController@show')->name('news.show');
+//Route::get('news/{news}', 'PostController@update')->name('news.update');
+
+//Контакты
 Route::get('/contacts', 'MainController@index' );
+
+//Ресурсы
 Route::get('/resources', 'MainController@index' );
+
+//Структура
 Route::get('/structure', 'MainController@index' );
 
 
@@ -31,9 +36,6 @@ Route::get('topic/{alias}', ['as' => 'topic.alias', 'uses' => 'TermController@al
     ->where('alias','[\w\d\-\_]+');//исключаем все символы кроме букв, цифр, -, _
 
 
-//Route::get('/news', 'PostController@index');
-
-Route::resource('news', 'PostController');
 
 
 //if(Gate::denies('view-admin')) {

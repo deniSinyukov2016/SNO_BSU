@@ -1,23 +1,17 @@
 {{--Меню сайта--}}
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        {{--<a href="/"><img src="{{asset('images/icons/belg_gu.png')}}" width="30" height="30" alt=""></a>--}}
-        <a class="navbar-brand" href="/">НИУ БелГУ</a>
-        <ul class="nav nav-pills">
-
-            @if(!empty($menuTop))
-                @foreach($menuTop as $menuItem)
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{$menuItem->url}}">{{$menuItem->title}}</a>
-                    </li>
-                @endforeach
-            @endif
-        </ul>
-
-    </div>
-    {{--Подключение аворизации--}}
-    {{--{!! Widget::AuthWidget() !!}--}}
-</nav>
+<ul class="nav navbar-nav">
+    {{--<li><a href="/">Главная</a></li>--}}
+    @if(!empty($menuTop))
+        @foreach($menuTop as $menuItem)
+            <li><a href="{{$menuItem->url}}">{{$menuItem->title}}</a></li>
+        @endforeach
+    @endif
+            {{--<li class="dropdown">--}}
+        {{--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>--}}
+        {{--<ul class="dropdown-menu">--}}
+            {{--<li><a href="#">Page 1-1</a></li>--}}
+            {{--<li><a href="#">Page 1-2</a></li>--}}
+            {{--<li><a href="#">Page 1-3</a></li>--}}
+        {{--</ul>--}}
+    {{--</li>--}}
+</ul>

@@ -8,7 +8,7 @@
                 <p class="blog-post-meta"><span>{{\Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}</span></p>
                 <p></p>
             </header>
-            {{str_limit($post->content, 350)}}
+            {!! str_limit($post->content, 350) !!}
             <a href="news/{{$post->alias}}">Подробнее →</a>
         </article>
     @empty

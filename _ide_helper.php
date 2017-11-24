@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.36 on 2017-10-06.
+ * Generated for Laravel 5.4.36 on 2017-11-18.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -7043,8 +7043,8 @@ namespace Illuminate\Support\Facades {
          * 
          * Order of precedence: PATH (routing placeholders or custom attributes), GET, BODY
          *
-         * @param string $key the key
-         * @param mixed $default the default value if the parameter key does not exist
+         * @param string $key The key
+         * @param mixed $default The default value if the parameter key does not exist
          * @return mixed 
          * @static 
          */ 
@@ -12974,6 +12974,264 @@ namespace Collective\Html {
  
 }
 
+namespace Arrilot\Widgets { 
+
+    class Facade {
+        
+        /**
+         * Run widget without magic method.
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function run()
+        {
+            return \Arrilot\Widgets\Factories\WidgetFactory::run();
+        }
+        
+        /**
+         * Encrypt widget params to be transported via HTTP.
+         *
+         * @param array $params
+         * @return string 
+         * @static 
+         */ 
+        public static function encryptWidgetParams($params)
+        {
+            //Method inherited from \Arrilot\Widgets\Factories\AbstractWidgetFactory            
+            return \Arrilot\Widgets\Factories\WidgetFactory::encryptWidgetParams($params);
+        }
+        
+        /**
+         * Decrypt widget params that were transported via HTTP.
+         *
+         * @param string $params
+         * @return array 
+         * @static 
+         */ 
+        public static function decryptWidgetParams($params)
+        {
+            //Method inherited from \Arrilot\Widgets\Factories\AbstractWidgetFactory            
+            return \Arrilot\Widgets\Factories\WidgetFactory::decryptWidgetParams($params);
+        }
+         
+    }
+
+    class AsyncFacade {
+        
+        /**
+         * Run widget without magic method.
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function run()
+        {
+            return \Arrilot\Widgets\Factories\AsyncWidgetFactory::run();
+        }
+        
+        /**
+         * Encrypt widget params to be transported via HTTP.
+         *
+         * @param array $params
+         * @return string 
+         * @static 
+         */ 
+        public static function encryptWidgetParams($params)
+        {
+            //Method inherited from \Arrilot\Widgets\Factories\AbstractWidgetFactory            
+            return \Arrilot\Widgets\Factories\AsyncWidgetFactory::encryptWidgetParams($params);
+        }
+        
+        /**
+         * Decrypt widget params that were transported via HTTP.
+         *
+         * @param string $params
+         * @return array 
+         * @static 
+         */ 
+        public static function decryptWidgetParams($params)
+        {
+            //Method inherited from \Arrilot\Widgets\Factories\AbstractWidgetFactory            
+            return \Arrilot\Widgets\Factories\AsyncWidgetFactory::decryptWidgetParams($params);
+        }
+         
+    }
+ 
+}
+
+namespace DaveJamesMiller\Breadcrumbs { 
+
+    class Facade {
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function register($name, $callback)
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::register($name, $callback);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function exists($name = null)
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::exists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function generate($name = null)
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::generate($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function generateArray($name, $params = array())
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function generateIfExists($name = null)
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function generateIfExistsArray($name, $params = array())
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExistsArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @deprecated Since 3.0.0
+         * @see generateIfExistsArray
+         * @static 
+         */ 
+        public static function generateArrayIfExists()
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateArrayIfExists();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function render($name = null)
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::render($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function renderArray($name, $params = array())
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function renderIfExists($name = null)
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function renderIfExistsArray($name, $params = array())
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExistsArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @deprecated Since 3.0.0
+         * @see renderIfExistsArray
+         * @static 
+         */ 
+        public static function renderArrayIfExists()
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderArrayIfExists();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setCurrentRoute($name)
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRoute($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setCurrentRouteArray($name, $params = array())
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRouteArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function clearCurrentRoute()
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::clearCurrentRoute();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setView($view)
+        {
+            return \DaveJamesMiller\Breadcrumbs\Manager::setView($view);
+        }
+         
+    }
+ 
+}
+
 namespace KodiCMS\Assets\Facades { 
 
     class PackageManager {
@@ -14916,7 +15174,7 @@ namespace SleepingOwl\Admin\Facades {
         /**
          * 
          *
-         * @return \SleepingOwl\Admin\Templates\Breadcrumbs 
+         * @return \Breadcrumbs 
          * @static 
          */ 
         public static function breadcrumbs()
@@ -18202,6 +18460,12 @@ namespace  {
     class Form extends \Collective\Html\FormFacade {}
 
     class Html extends \Collective\Html\HtmlFacade {}
+
+    class Widget extends \Arrilot\Widgets\Facade {}
+
+    class AsyncWidget extends \Arrilot\Widgets\AsyncFacade {}
+
+    class Breadcrumbs extends \DaveJamesMiller\Breadcrumbs\Facade {}
 
     class PackageManager extends \KodiCMS\Assets\Facades\PackageManager {}
 
