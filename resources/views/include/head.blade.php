@@ -32,8 +32,11 @@
             {{ Widget::run('menu_widget') }}
 
             <ul class="nav navbar-nav navbar-right">
-                {{-- Подключение поиска --}}
-                {{ Widget::run('search_widget') }}
+                {{--Если на странице поиска, то не показываем блок поиска в шапке--}}
+                @if(URL::current() != route('show.search'))
+                    {{-- Подключение поиска --}}
+                    {{ Widget::run('search_widget') }}
+                @endif
 
                 {{--Авторизация--}}
                 @if (Auth::guest())

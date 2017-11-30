@@ -1,47 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{{--Подключние шапки--}}
+@include('include.head')
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>Search with Laravel Scout and Vue.js!</title>
-</head>
-<body>
 <div class="container">
     <div class="well well-sm">
         <div class="form-group">
             <div class="input-group input-group-md">
                 <div class="icon-addon addon-md">
-                    <input type="text" placeholder="What are you looking for?" class="form-control" v-model="query">
+                    <input type="text" placeholder="Что желаете найти?" class="form-control" v-model="query">
                 </div>
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" @click="search()" v-if="!loading">Search!</button>
-                    <button class="btn btn-default" type="button" disabled="disabled" v-if="loading">Searching...</button>
+                    <button class="btn btn-default" type="button" @click="search()" v-if="!loading">Поиск</button>
+                    <button class="btn btn-default" type="button" disabled="disabled" v-if="loading">Ищем...</button>
                 </span>
-            </div>
-        </div>
-    </div>
-    <div id="posts" class="row list-group">
-        <div class="item col-xs-4 col-lg-4" v-for="product in posts">
-            <div class="thumbnail">
-
-                <div class="caption">
-                    @if(!empty($posts))
-                        {{dump($posts)}}
-                    @else
-                        {{--{{dump($error)}}--}}
-                    @endif
-                    <h4 class="group inner list-group-item-heading">@{{ product.title }}</h4>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="#">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -49,9 +19,19 @@
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
         @{{ error }}
     </div>
+    <div id="posts" class="row list-group">
+        <div class="item col-xs-4 col-lg-4" v-for="post in posts">
+            <div class="thumbnail">
+                <img class="group list-group-image" :src="post.thumbnail" alt="@{{ post.title }}" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">@{{ post.title }}</h4>
+                    <p class="group inner list-group-item-text">@{{ post.content }}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.0.1/vue-resource.min.js"></script>
-<script src="/js/app.js"></script>
-</body>
-</html>
+
+{{--Подклчючение подвала--}}
+@include('include.footer')

@@ -1,22 +1,28 @@
 @extends('layouts.main')
 @section('title', '| Новости')
 @section('content')
-
-            <h2>Список новостей</h2>
-            @forelse($posts as $post)
-                <article class="blog-post" data-id="">
-                    <header>
-                        <h2 class="blog-post-title"><a href="{!! route('news.single',$post->alias) !!}">{{$post->title}}</a></h2>
-                        <p class="blog-post-meta"><span>{{\Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}</span></p>
-                        <p></p>
+    <h2>Список новостей</h2>
+    @forelse($posts as $post)
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <article class="post">
+                    <header class="post-header">
+                        <h2 class="post-title"><a href="{!! route('news.single',$post->alias) !!}" title="{{$post->title}}">{{$post->title}}</a></h2>
                     </header>
-                    {!! str_limit($post->content, 350)!!}
-                    <a href="news/{{$post->alias}}">Подробнее →</a>
+                    <section class="post-excerpt">
+                        <p>{!! str_limit($post->content, 350)!!} […]</p>
+                        <a class="read-more" title="{{$post->title}}" href="{!! route('news.single',$post->alias) !!}">Подробнее</a>
+                    </section>
                 </article>
-            @empty
-                <p>Постов нет</p>
-            @endforelse
-            {{--Вывод постраничной навигации из view/vendor/pagination/default.blade.php--}}
-            {!! $posts->render()!!}
-
+            </div>
+        </div>
+    @empty
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <p>Постов нет.</p>
+            </div>
+        </div>
+    @endforelse
+    {{--Вывод постраничной навигации из view/vendor/pagination/default.blade.php--}}
+    {!! $posts->render()!!}
 @endsection

@@ -16,4 +16,7 @@ class Post extends Model
     public function terms(){
         return $this->belongsToMany(Term::class, 'post_term');
     }
+
+
+
 }

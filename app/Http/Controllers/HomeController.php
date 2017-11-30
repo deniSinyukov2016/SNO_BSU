@@ -35,6 +35,7 @@ class HomeController extends Controller
 //            ->where('menu_items.group_menu_id', '=' ,'1')
 //            ->get();
 
-        return view('home',compact('menus'));
+        //return view('home',compact('menus'));
+        return view('pages.search',compact('menus'));
     }
 }

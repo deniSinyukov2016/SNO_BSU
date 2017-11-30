@@ -1,30 +1,33 @@
 new Vue({
+
     el: 'body',
+
     data: {
         posts: [],
         loading: false,
         error: false,
         query: ''
     },
-    methods:{
+
+    methods: {
         search: function() {
-            // Очистим сообщение об ошибке.
+            // Clear the error message.
             this.error = '';
-            // Опустошим набор данных.
-            this.posts = [];
-            // Установим признак загрузки данных в true,
-            // для отображения процесса поиска "Searching...".
+            // Empty the products array so we can fill it with the new products.
+            this.products = [];
+            // Set the loading property to true, this will display the "Searching..." button.
             this.loading = true;
-            // делаем get запрос к нашему API и передаем в него поисковый запрос.
+
+            // Making a get request to our API and passing the query to it.
             this.$http.get('/api/search?q=' + this.query).then((response) => {
-                // Елси ошибки нет, заполняем массив products, в случае ошибки заполняем ее
+                // If there was an error set the error message, if not fill the products array.
                 response.body.error ? this.error = response.body.error : this.posts = response.body;
-            //console.log(posts);
-            // Запрос завершен. Меняем статус загрузки
-            this.loading = false;
-            // Очищаем поисковое слово.
-            this.query = '';
-        });
+                // The request is finished, change the loading to false again.
+                this.loading = false;
+                // Clear the query.
+                this.query = '';
+            });
         }
     }
+
 });

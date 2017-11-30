@@ -263,3 +263,39 @@ footer { background-color:#0c1a1e; min-height:350px; font-family: 'Open Sans', s
 .bottom_ul li { float:left; line-height:40px;}
 .bottom_ul li:after { content:"/"; color:#FFF; margin-right:8px; margin-left:8px;}
 .bottom_ul li a { color:#FFF;  font-size:12px;}
+.post p {
+    margin-bottom: 30px;
+    font-weight: 300;
+    line-height: 1.75em;
+    color: #3A4145;
+}
+.post {
+    letter-spacing: 0.01rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2em;
+}
+.read-more {
+    display: inline-block;
+    padding: 0.8em 2em;
+    margin-top: 0.5em;
+    background-color: #dc5034;
+    border-radius: 5px;
+    font-size: 0.7em;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+}
+.read-more:hover {
+    background-color: #bb4730;
+    color: white;
+    text-decoration: none;
+}
+.post-title a {
+    color: #34495E;
+    text-decoration: none;
+}
+.post-title a:hover {
+    color: #dc5034;
+}

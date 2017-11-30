@@ -8,25 +8,29 @@ use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
+    /**
+     * Search the products table.
+     *
+     * @param  Request $request
+     * @return mixed
+     */
     public function search(Request $request)
     {
-        // Определим сообщение, которое будет отображаться, если ничего не найдено
-        // или поисковая строка пуста
-        $error = ['error' => 'No results found, please try with different keywords.'];
-
-        // Удостоверимся, что поисковая строка есть
+        // First we define the error message we are going to show if no keywords
+        // existed or if no results found.
+        $error = ['error' => 'Поиск не дал результатов..'];
+        // Making sure the user entered a keyword.
         if($request->has('q')) {
-
-            // Используем синтаксис Laravel Scout для поиска по таблице products.
+            // Using the Laravel Scout syntax to search the products table.
             $posts = Post::search($request->get('q'))->get();
-
-            // Если есть результат есть, вернем его, если нет  - вернем сообщение об ошибке.
-            $posts =  $posts->count() ? $posts : $error;
-            return view('pages.search',compact(['result',$posts]));
-
+            // If there are results return them, if none, return the error message.
+            return $posts->count() ? $posts : $error;
         }
+        // Return the error message if no keywords existed
+        return $error;
 
-        // Вернем сообщение об ошибке, если нет поискового запроса
-        return view('pages.search',compact(['error',$error]));
+    }
+    public function show (){
+        return view('pages.search');
     }
 }

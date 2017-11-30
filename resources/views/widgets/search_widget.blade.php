@@ -6,6 +6,8 @@
     <div class="input-group-btn">
         {!! Form::button('<i class="glyphicon glyphicon-search"></i>',['class' => 'btn btn-default']) !!}
     </div>
+
+
 </div>
 {!! Form::close() !!}
 {{--<form class="navbar-form navbar-left">--}}

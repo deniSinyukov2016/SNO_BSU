@@ -35,6 +35,8 @@ Route::get('topic', ['as' => 'topic.index', 'uses' => 'TermController@index'] );
 Route::get('topic/{alias}', ['as' => 'topic.alias', 'uses' => 'TermController@alias'])
     ->where('alias','[\w\d\-\_]+');//исключаем все символы кроме букв, цифр, -, _
 
+Route::get('searching', ['as' => 'show.search', 'uses' => 'Api\SearchController@show'] );
+
 
 
 
